@@ -3,17 +3,18 @@ package jp.takuji31.kotlindatabinding
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import jp.takuji31.kotlindatabinding.databinding.ActivityDataClassBinding
 
 class DataClassActivity : AppCompatActivity() {
 
     data class User(val name: String, val birthDay: String?)
 
-    val users = listOf(
+    var users = listOf(
             User(name = "takuji31", birthDay = "1987/03/01"),
             User(name = "takuji32", birthDay = "1987/03/02"),
             User(name = "takuji33", birthDay = "1987/03/03"),
-            User(name = "takuji24884", birthDay = "1987/03/04")
+            User(name = "takuji24884", birthDay = null)
     )
 
     val binding: ActivityDataClassBinding by lazy {
@@ -22,6 +23,15 @@ class DataClassActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.user = users[0]
+        binding.user = users.last()
+        binding.randomButtonClickListener = View.OnClickListener {
+            binding.user = users[0]
+            users = users.drop(1) + binding.user
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.randomButtonClickListener = null
     }
 }

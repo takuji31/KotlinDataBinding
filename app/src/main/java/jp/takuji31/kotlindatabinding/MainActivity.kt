@@ -1,8 +1,9 @@
 package jp.takuji31.kotlindatabinding
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
@@ -15,16 +16,17 @@ class MainActivity : AppCompatActivity() {
 
     val items = listOf(
             Section(label = "Basic binding", onClickListener = OnClickListener {
-
+                startActivity(Intent(this, DataClassActivity::class.java))
             }),
             Section(label = "Property observer", onClickListener = OnClickListener {
-
+                startActivity(Intent(this, DataClassActivity::class.java))
             }),
             Section(label = "Converter", onClickListener = OnClickListener {
+                startActivity(Intent(this, DataClassActivity::class.java))
 
             }),
             Section(label = "Binding adapter", onClickListener = OnClickListener {
-
+                startActivity(Intent(this, DataClassActivity::class.java))
             })
     )
 

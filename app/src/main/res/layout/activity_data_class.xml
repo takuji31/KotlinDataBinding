@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="jp.takuji31.kotlindatabinding.DataClassActivity">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="user"
             type="jp.takuji31.kotlindatabinding.DataClassActivity.User" />
+
         <variable
             name="randomButtonClickListener"
             type="android.view.View.OnClickListener" />
@@ -20,46 +22,48 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        >
+        android:paddingTop="@dimen/activity_vertical_margin">
+
         <TextView
             android:id="@+id/nameLabelTextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Name : "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
         <TextView
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:layout_toEndOf="@+id/nameLabelTextView"
-            android:layout_alignParentEnd="true"
-            tools:text="namename"
-            android:text="@{user.name}"
+            android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameLabelTextView"
+            android:text="@{user.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            tools:text="namename" />
+
         <TextView
             android:id="@+id/birthdayLabelTextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameTextView"
             android:text="Birthday : "
-            android:visibility="@{user.birthDay != null ? View.VISIBLE : View.GONE}"
-            android:layout_below="@+id/nameLabelTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:layout_toEndOf="@+id/birthdayLabelTextView"
-            android:layout_alignTop="@+id/birthdayLabelTextView"
-            android:layout_alignParentEnd="true"
-            android:visibility="@{user.birthDay != null ? View.VISIBLE : View.GONE}"
-            android:text="@{user.birthDay}"
-            tools:text="1970/01/01"
+            android:visibility="@{user.birthDay != null ? View.VISIBLE : View.GONE}" />
+
+        <TextView
+            android:id="@+id/birthdayTextView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/birthdayLabelTextView"
+            android:text="@{user.birthDay}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:visibility="@{user.birthDay != null ? View.VISIBLE : View.GONE}"
+            tools:text="1970/01/01" />
 
         <Button
-            android:layout_below="@+id/birthdayLabelTextView"
-            android:text="Random"
-            android:onClick="@{randomButtonClickListener}"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/birthdayTextView"
+            android:onClick="@{randomButtonClickListener}"
+            android:text="Random" />
     </RelativeLayout>
 </layout>
