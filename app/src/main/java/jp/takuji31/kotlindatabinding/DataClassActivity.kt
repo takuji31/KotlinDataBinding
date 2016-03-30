@@ -8,8 +8,6 @@ import jp.takuji31.kotlindatabinding.databinding.ActivityDataClassBinding
 
 class DataClassActivity : AppCompatActivity() {
 
-    data class User(val name: String, val birthDay: String?)
-
     var users = listOf(
             User(name = "takuji31", birthDay = "1987/03/01"),
             User(name = "takuji32", birthDay = "1987/03/02"),
