@@ -62,8 +62,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/birthdayTextView"
+            android:layout_alignParentBottom="true"
             android:onClick="@{randomButtonClickListener}"
-            android:text="Random" />
+            android:text="Next" />
     </RelativeLayout>
 </layout>
