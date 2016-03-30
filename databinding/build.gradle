@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
@@ -6,7 +6,6 @@ android {
     buildToolsVersion "24.0.0 rc2"
 
     defaultConfig {
-        applicationId "jp.takuji31.kotlindatabinding"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
@@ -18,22 +17,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding {
-        enabled = true
-    }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile project(":databinding")
     compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.android.support:recyclerview-v7:23.2.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    kapt 'com.android.databinding:compiler:2.1.0-alpha4'
     compile 'com.jakewharton.threetenabp:threetenabp:1.0.3'
 }
 buildscript {
@@ -47,8 +44,4 @@ buildscript {
 }
 repositories {
     mavenCentral()
-}
-
-kapt {
-    generateStubs = true
 }

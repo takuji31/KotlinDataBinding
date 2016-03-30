@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KotlinDataBinding</string>
+    <string name="count_format">Count : %1$d</string>
 </resources>

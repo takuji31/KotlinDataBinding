@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, DataClassActivity::class.java))
             }),
             Section(label = "Property observer", onClickListener = OnClickListener {
-                startActivity(Intent(this, DataClassActivity::class.java))
+                startActivity(Intent(this, PropertyObserverActivity::class.java))
             }),
             Section(label = "Converter", onClickListener = OnClickListener {
                 startActivity(Intent(this, DataClassActivity::class.java))
