@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="section"
+            type="jp.takuji31.kotlindatabinding.MainActivity.Section"/>
+    </data>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="@{section.label}"
+        android:onClick="@{section.onClickListener}"
+        tools:text="Section Title"
+        />
+</layout>
